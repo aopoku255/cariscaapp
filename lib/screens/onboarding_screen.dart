@@ -56,26 +56,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ...List.generate(
-                    _pages.length,
-                    (index) => Padding(
-                          padding: const EdgeInsets.only(right: 4),
-                          child: DotIndicator(isActive: index == _pageIndex),
-                        )),
+                  _pages.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: DotIndicator(isActive: index == _pageIndex),
+                  ),
+                ),
                 // MainText(text: "Skip")
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             MainText(
               text: _pages[_pageIndex].title,
               fontWeight: FontWeight.bold,
               fontSize: 20,
               color: AppColors.primaryColor,
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             MainText(text: _pages[_pageIndex].description),
             _pageIndex == 2
                 ? Button(
@@ -91,13 +88,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     hasIcon: true,
                     onTap: () {
                       _pageController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.ease);
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.ease,
+                      );
                     },
                   ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             _pageIndex == 2
                 ? Container()
                 : TextButton(
@@ -107,7 +103,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: MainText(
                       text: "Skip",
                       color: AppColors.primaryColor,
-                    ))
+                    ),
+                  ),
           ],
         ),
       ),
@@ -116,10 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 class DotIndicator extends StatelessWidget {
-  const DotIndicator({
-    super.key,
-    this.isActive = false,
-  });
+  const DotIndicator({super.key, this.isActive = false});
 
   final bool isActive;
 
@@ -130,9 +124,7 @@ class DotIndicator extends StatelessWidget {
       width: isActive ? 30 : 10,
       decoration: BoxDecoration(
         color: AppColors.primaryGold,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
   }
@@ -140,8 +132,11 @@ class DotIndicator extends StatelessWidget {
 
 class Onboard {
   final String image, title, description;
-  Onboard(
-      {required this.image, required this.title, required this.description});
+  Onboard({
+    required this.image,
+    required this.title,
+    required this.description,
+  });
 }
 
 final List<Onboard> _pages = [
@@ -149,19 +144,20 @@ final List<Onboard> _pages = [
     image: "assets/images/onboarding1.jpg",
     title: "CARISCA'S 2026 Supply Chain Research Summit!",
     description:
-        "Dive into groundbreaking research, connect with global scholars, and explore Africa’s academic pulse, right here in Nigeria. Let’s show you around.",
+        "Dive into groundbreaking research, connect with global scholars, and explore Africa’s academic pulse, right here in Ghana. Let’s show you around.",
   ),
   Onboard(
     image: "assets/images/onboarding2.jpg",
-    title: "Reimagining Africa's Supply Chains for a Sustainable Future",
+    title: "AI, Supply chains and Africa's next research frontier. ",
     description:
         "Empowering local innovation, connecting communities, and driving green growth through smarter logistics and sustainable trade.",
   ),
   Onboard(
-      image: "assets/images/onboarding3.jpg",
-      title: "In-Person or Virtual, Connect with Supply Chain experts",
-      description:
-          "Seamlessly engage with industry leaders anytime, anywhere to exchange insights, solve challenges, and shape Africa’s supply chain future."),
+    image: "assets/images/onboarding3.jpg",
+    title: "In-Person or Virtual, Connect with Supply Chain experts",
+    description:
+        "Seamlessly engage with industry leaders anytime, anywhere to exchange insights, solve challenges, and shape Africa’s supply chain future.",
+  ),
 ];
 
 class OnboardingContent extends StatelessWidget {
@@ -178,7 +174,8 @@ class OnboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+        image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+      ),
     );
   }
 }

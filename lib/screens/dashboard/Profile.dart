@@ -53,7 +53,8 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    final loginResponse = ModalRoute.of(context)?.settings.arguments as UserData;
+    final loginResponse =
+        ModalRoute.of(context)?.settings.arguments as UserData;
 
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
@@ -78,7 +79,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -90,10 +91,7 @@ class _ProfileState extends State<Profile> {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
-                    AppColors.primaryBlue,
-                    AppColors.primaryDeepBlue,
-                  ],
+                  colors: [AppColors.primaryBlue, AppColors.primaryDeepBlue],
                 ),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
@@ -123,8 +121,9 @@ class _ProfileState extends State<Profile> {
                           backgroundColor: Colors.white,
                           child: CircleAvatar(
                             radius: 62,
-                            backgroundImage:
-                                AssetImage("assets/images/user.jpg"),
+                            backgroundImage: AssetImage(
+                              "assets/images/user.jpg",
+                            ),
                           ),
                         ),
                       ),
@@ -151,7 +150,8 @@ class _ProfileState extends State<Profile> {
                   const SizedBox(height: 20),
                   // Name
                   Text(
-                    "${loginResponse.prefix} ${loginResponse.firstName} ${loginResponse.lastName} ${loginResponse.suffix}".trim(),
+                    "${loginResponse.prefix} ${loginResponse.firstName} ${loginResponse.lastName} ${loginResponse.suffix}"
+                        .trim(),
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -163,10 +163,7 @@ class _ProfileState extends State<Profile> {
                   // Email
                   Text(
                     loginResponse.email,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white70,
-                    ),
+                    style: const TextStyle(fontSize: 14, color: Colors.white70),
                   ),
                   const SizedBox(height: 12),
                   // Category and Organization Tags
@@ -245,7 +242,9 @@ class _ProfileState extends State<Profile> {
                       _buildInfoCard(
                         icon: Icons.location_city_outlined,
                         label: "City",
-                        value: loginResponse.city.isEmpty ? "N/A" : loginResponse.city,
+                        value: loginResponse.city.isEmpty
+                            ? "N/A"
+                            : loginResponse.city,
                         color: AppColors.primaryColor,
                       ),
                       _buildInfoCard(
@@ -257,7 +256,9 @@ class _ProfileState extends State<Profile> {
                       _buildInfoCard(
                         icon: Icons.work_outline,
                         label: "Position",
-                        value: loginResponse.position.isEmpty ? "N/A" : loginResponse.position,
+                        value: loginResponse.position.isEmpty
+                            ? "N/A"
+                            : loginResponse.position,
                         color: AppColors.primaryVoilet,
                       ),
                     ],
@@ -283,21 +284,35 @@ class _ProfileState extends State<Profile> {
                           padding: const EdgeInsets.all(20),
                           child: Column(
                             children: [
-                              _buildDetailRow("Mobile", loginResponse.mobileNumber),
+                              _buildDetailRow(
+                                "Mobile",
+                                loginResponse.mobileNumber,
+                              ),
                               const Divider(height: 20),
-                              _buildDetailRow("Gender", loginResponse.gender.isEmpty ? "N/A" : loginResponse.gender),
+                              _buildDetailRow(
+                                "Gender",
+                                loginResponse.gender.isEmpty
+                                    ? "N/A"
+                                    : loginResponse.gender,
+                              ),
                               const Divider(height: 20),
-                              _buildDetailRow("Attendance Type",
-                                  loginResponse.attendaceType),
+                              _buildDetailRow(
+                                "Attendance Type",
+                                loginResponse.attendaceType,
+                              ),
                               const Divider(height: 20),
                               _buildDetailRow(
                                 "Sector",
-                                loginResponse.sector.isEmpty ? "N/A" : loginResponse.sector,
+                                loginResponse.sector.isEmpty
+                                    ? "N/A"
+                                    : loginResponse.sector,
                               ),
                               const Divider(height: 20),
                               _buildDetailRow(
                                 "Continent",
-                                loginResponse.continent.isEmpty ? "N/A" : loginResponse.continent,
+                                loginResponse.continent.isEmpty
+                                    ? "N/A"
+                                    : loginResponse.continent,
                               ),
                             ],
                           ),
@@ -326,11 +341,11 @@ class _ProfileState extends State<Profile> {
                   const SizedBox(height: 30),
 
                   // Footer Logo
-                  Image.asset(
-                    "assets/images/dilogo.png",
-                    height: 60,
-                  ),
-                  const SizedBox(height: 20),
+                  // Image.asset(
+                  //   "assets/images/dilogo.png",
+                  //   height: 60,
+                  // ),
+                  // const SizedBox(height: 20),
                 ],
               ),
             ),
@@ -368,11 +383,7 @@ class _ProfileState extends State<Profile> {
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(10),
-            child: Icon(
-              icon,
-              color: color,
-              size: 24,
-            ),
+            child: Icon(icon, color: color, size: 24),
           ),
           const SizedBox(height: 10),
           Text(
@@ -459,11 +470,7 @@ class _ProfileState extends State<Profile> {
                 shape: BoxShape.circle,
               ),
               padding: const EdgeInsets.all(12),
-              child: Icon(
-                icon,
-                color: AppColors.primaryBlue,
-                size: 24,
-              ),
+              child: Icon(icon, color: AppColors.primaryBlue, size: 24),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -481,20 +488,13 @@ class _ProfileState extends State<Profile> {
                   const SizedBox(height: 4),
                   Text(
                     subtitle,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colors.black54,
-                    ),
+                    style: const TextStyle(fontSize: 12, color: Colors.black54),
                   ),
                 ],
               ),
             ),
             const SizedBox(width: 8),
-            Icon(
-              Icons.chevron_right,
-              color: Colors.black26,
-              size: 24,
-            ),
+            Icon(Icons.chevron_right, color: Colors.black26, size: 24),
           ],
         ),
       ),

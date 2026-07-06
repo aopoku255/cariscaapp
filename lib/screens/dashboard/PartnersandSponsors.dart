@@ -15,26 +15,23 @@ class _PartnersandSponsorsState extends State<PartnersandSponsors> {
     {'image': 'assets/images/knust.png', 'url': 'https://www.knust.edu.gh'},
     {
       'image': 'assets/images/learnlogistics.png',
-      'url': 'https://www.kuehne-stiftung.org/'
+      'url': 'https://www.kuehne-stiftung.org/',
     },
     {'image': 'assets/images/asu.png', 'url': 'https://www.asu.edu'},
     {'image': 'assets/images/arcesm.png', 'url': 'https://arc-esm.org'},
-    {'image': 'assets/images/federal.png', 'url': 'https://futo.edu.ng'},
-    {'image': 'assets/images/lsu.png', 'url': 'https://lasu.edu.gh'},
   ];
 
   final List<Map<String, String>> sponsorLogos = [
     {
       'image': 'assets/images/learnlogistics.png',
-      'url': 'https://www.kuehne-stiftung.org/'
+      'url': 'https://www.kuehne-stiftung.org/',
     },
     {'image': 'assets/images/arcesm.png', 'url': 'https://arc-esm.org'},
     {'image': 'assets/images/asu.png', 'url': 'https://www.asu.edu'},
     {
       'image': 'assets/images/clinton.png',
-      'url': 'https://www.clintonhealthaccess.org'
+      'url': 'https://www.https://mtn.com.gh',
     },
-    {'image': 'assets/images/kaizen.png', 'url': 'https://www.kaizen.com'},
   ];
 
   void _launchURL(String url) async {
@@ -42,18 +39,16 @@ class _PartnersandSponsorsState extends State<PartnersandSponsors> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open $url')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Could not open $url')));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: MainText(text: "Partners and Sponsors"),
-      ),
+      appBar: AppBar(title: MainText(text: "Partners and Sponsors")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -88,10 +83,7 @@ class _PartnersandSponsorsState extends State<PartnersandSponsors> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        item['image']!,
-                        fit: BoxFit.contain,
-                      ),
+                      child: Image.asset(item['image']!, fit: BoxFit.contain),
                     ),
                   ),
                 );
@@ -127,10 +119,7 @@ class _PartnersandSponsorsState extends State<PartnersandSponsors> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        item['image']!,
-                        fit: BoxFit.contain,
-                      ),
+                      child: Image.asset(item['image']!, fit: BoxFit.contain),
                     ),
                   ),
                 );
